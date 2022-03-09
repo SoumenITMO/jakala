@@ -2,7 +2,6 @@ package com.jakala.controllers;
 
 import java.util.List;
 import com.jakala.dtos.UserDto;
-import com.jakala.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import com.jakala.services.UserService;
 import org.springframework.http.ResponseEntity;
