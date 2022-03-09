@@ -1,0 +1,4 @@
+signed_by_provider,signed_by_consumer,contract_start_date,contract_valid_upto,contract_content,contract_type,contract_valid
+2022-02-08T10:20:22,2022-02-08T10:20:22,2022-02-12,2023-10-08T10:20:22,This is just Gas contract,GAS,TRUE
+2022-02-08T10:20:22,2022-02-08T10:20:22,2022-02-12,2023-10-08T10:20:22,This is electric contract,Electric,TRUE
+2022-02-08T10:20:22,2022-02-08T10:20:22,2022-02-10,2023-10-08T10:20:22,This is electric and Gas contract,GAS and Electric,TRUE

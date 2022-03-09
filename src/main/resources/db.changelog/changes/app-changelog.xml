@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="1" author="Soumen Banerjee">
+        <createTable tableName="users">
+            <column name="id" type="BIGSERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_id"/>
+            </column>
+            <column name="username" type="VARCHAR(20)" />
+            <column name="firstname" type="VARCHAR(18)"/>
+            <column name="lastname" type="VARCHAR(18)"/>
+            <column name="usertype" type="VARCHAR(18)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="Soumen Banerjee">
+        <loadData tableName="users" file="db.changelog/mockdata/users-mock-data.csv">
+            <column header="username" name="username" type="VARCHAR(20)" />
+            <column header="firstname" name="firstname" type="VARCHAR(18)"/>
+            <column header="lastname" name="lastname" type="VARCHAR(18)"/>
+            <column header="usertype" name="usertype" type="VARCHAR(18)"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="3" author="Soumen Banerjee">
+        <createTable tableName="contract">
+            <column name="id" type="BIGSERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="contract_id"/>
+            </column>
+            <column name="contract_start_date" type="DATE" />
+            <column name="signed_by_provider" type="DATE" />
+            <column name="signed_by_consumer" type="DATE"/>
+            <column name="contract_valid_upto" type="DATE"/>
+            <column name="contract_content" type="text"/>
+            <column name="contract_type" type="VARCHAR(18)"/>
+            <column name="contract_valid" type="boolean"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="Soumen Banerjee">
+        <loadData tableName="contract" file="db.changelog/mockdata/contracts-mock-data.csv">
+            <column header="contract_start_date" name="contract_start_date" type="DATE" />
+            <column header="signed_by_provider" name="signed_by_provider" type="DATE" />
+            <column header="signed_by_consumer" name="signed_by_consumer" type="DATE"/>
+            <column header="contract_valid_upto" name="contract_valid_upto" type="DATE"/>
+            <column header="contract_content" name="contract_content" type="text"/>
+            <column header="contract_type" name="contract_type" type="VARCHAR(18)"/>
+            <column header="contract_valid" name="contract_valid" type="boolean"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="5" author="Soumen Banerjee">
+        <createTable tableName="users_contract_links">
+            <column name="id" type="BIGSERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_contract_id"/>
+            </column>
+            <column name="users_id" type="BIGINT" />
+            <column name="contract_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="Soumen Banerjee">
+        <loadData tableName="users_contract_links" file="db.changelog/mockdata/user-contracts-mock-relational-data.csv">
+            <column name="users_id" type="NUMERIC" />
+            <column name="contract_id" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
